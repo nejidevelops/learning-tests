@@ -13,6 +13,10 @@ describe('Sum function', () => {
     expect(sum(0, 0)).toBe(0)
   })
 
+  it('should return -2 when -1 and -1 are passed', () => {
+    expect(sum(-1, -1)).toBe(-2)
+  })
+
   it('should throw an error if one or all parameters are not numbers', () => {
     expect(() => sum(2, '3')).toThrow('parameters must be numbers');
   });
