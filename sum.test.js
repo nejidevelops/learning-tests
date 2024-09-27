@@ -17,7 +17,19 @@ describe('Sum function', () => {
     expect(sum(-1, -1)).toBe(-2)
   })
 
-  it('should throw an error if one or all parameters are not numbers', () => {
+  it('should throw an error if one or all parameters is a string', () => {
     expect(() => sum(2, '3')).toThrow('parameters must be numbers');
+  });
+
+  it('should throw an error if one or both params are objects', () => {
+    expect(() => sum(2, {})).toThrow('parameters must be numbers')
+  })
+
+  it('should throw an error if one or both params are undefined', () => {
+    expect(() => sum(2)).toThrow('parameters must be numbers')
+  })
+
+  it('should ignore additional parameters and sum only the first two', () => {
+    expect(sum(2, 3, 4)).toBe(5);
   });
 })
